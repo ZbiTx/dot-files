@@ -130,6 +130,5 @@ cat << "EOF"
 EOF
 echo -e "\e[0mWelcome, Ж. Let’s make magic."
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
