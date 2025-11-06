@@ -1,0 +1,12 @@
+[window]
+padding = {x = 10, y = 10}
+dynamic_padding = true
+decorations = "Full"
+opacity = 0.8
+
+[colors.primary]
+background = "#000000"
+foreground = "#FFFFFF"
+
+[font]
+size = 10.0

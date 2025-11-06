@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# set environment 
+export DESKTOP_SESSION=bpswm
+export XDG_CURRENT_DESKTOP=bspwm
+export XDG_SESSION_TYPE=x11
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+xrandr --output eDP-1 --auto --primary --mode 1920x1080 --rate 60 
+xinput disable 11 
+
+xrandr --output DP3 --off 
+xinput disable 15
+
+xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 60
+
+# Create desktops dynamically for each active monitor
+MONITOR=$(bspc query -M | head -n1)
+
+bspc config border_width         2
+bspc config window_gap           6
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config border_radius 2
+
+#AutoStart Applications
+picom --config $HOME/.config/picom/picom.conf &
+nitrogen --restore &
+dunst &
+polybar &
